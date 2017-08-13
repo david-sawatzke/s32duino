@@ -1,0 +1,23 @@
+# See: https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5-3rd-party-Hardware-specification
+
+menu.upload_method=Upload method
+
+################################################################################
+# STM32F030F4
+
+STM32F030F4.build.board=STM32F030F4
+STM32F030F4.build.cmsis_lib_gcc=arm_cortexM0l_math
+STM32F030F4.build.core=arduino
+STM32F030F4.build.extra_flags=-D{build.product_line}
+STM32F030F4.build.f_cpu=48000000L
+STM32F030F4.build.mcu=cortex-m0
+STM32F030F4.build.product_line=STM32F030x6
+STM32F030F4.build.series=STM32F0xx
+STM32F030F4.build.variant=STM32F030F4
+STM32F030F4.name=STM32F030F4
+STM32F030F4.upload.maximum_data_size=4096
+STM32F030F4.upload.maximum_size=16384
+
+STM32F030F4.menu.upload_method.BMPMethod=BMP (Black Magic Probe)
+STM32F030F4.menu.upload_method.BMPMethod.upload.protocol=gdb_bmp
+STM32F030F4.menu.upload_method.BMPMethod.upload.tool=bmp_upload

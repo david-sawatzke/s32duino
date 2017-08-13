@@ -1,0 +1,10 @@
+* notes
+- Core
+- SPI
+  - UsingInterrupt is a no-op
+  - Not tested
+- Capacitive Sensor 
+  - seems to work without changes (Not tested)
+  - Needs bigger pin variables
+- Liquid Crystal
+  - needs bigger pin values 
