@@ -19,7 +19,7 @@ Chips available:
 
 - There are no pin numbers, each Pin is named according to the datasheet, e.g. PA4, PA5
 - Pins are 32 bit big
-- double is 64 bytes and int is 32 bytes
+- A double has 64 bits and an int has 32 bits
 - Programming can only be done via [blackmagic debugging probe](https://github.com/blacksphere/blackmagic)
 
 ## Troubleshooting
