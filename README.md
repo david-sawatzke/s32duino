@@ -35,3 +35,6 @@ If you have any issue to download/use a package, you could [file an issue on Git
 - Add a board manager url
 - Add more programmers
 - Implement more libraries
+
+## LICENSE
+Most of the files have copyright notices, which apply. The rest is licensed under GPLv2
