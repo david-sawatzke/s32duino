@@ -1,8 +1,11 @@
 # s32duino Core
 
 This is a library for STM32F0 chips. It's based on the [official stm32 library](https://github.com/stm32duino/Arduino_Core_STM32)
+
 *WARNING*: This is still a WIP Project. It probably contains quite a few bugs and I'm not sure if going to continue developement
 Chips available:
+
+## Supported chips
 
 - STM32F030F4
 
