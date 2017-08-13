@@ -35,7 +35,7 @@ void tone(uint32_t _pin, uint32_t _frequency, uint32_t _duration)
 	uint32_t prescaler = 1;
 	uint32_t period = 0;
 	while(end == 0) {
-		period = ((uint32_t)(F_CPU / (_frequency * 4) / prescaler)) - 1;
+		period = ((uint32_t)(F_CPU / (_frequency * 2) / prescaler)) - 1;
 
 		if((period >= 0xFFFF) && (prescaler < 0xFFFF))
 			prescaler++; //prescaler *= 2;
@@ -51,7 +51,7 @@ void tone(uint32_t _pin, uint32_t _frequency, uint32_t _duration)
 	pin = STM_GPIO_PIN(_pin);
 	pinMode(_pin, OUTPUT);
 	TIMER_TONE->DIER = TIM_DIER_UIE;
-	TIMER_TONE->PSC = prescaler;
+	TIMER_TONE->PSC = prescaler-1;
 	TIMER_TONE->ARR = period;
 	start = millis();
 	TIMER_TONE->CR1 = TIM_CR1_ARPE | TIM_CR1_URS | TIM_CR1_CEN;
