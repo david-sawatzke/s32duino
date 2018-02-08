@@ -18,7 +18,7 @@
 
 #include "Usart.h"
 
-Usart::Usart(USART_TypeDef *_s, uint32_t _pinRX, uint32_t _pinTX)
+Usart::Usart(USART_TypeDef *_s, PinName _pinRX, PinName _pinTX)
 {
 	usart = _s;
 	rxPin = _pinRX;
@@ -129,4 +129,5 @@ size_t Usart::write(const uint8_t data)
 	while(txBuffer.isFull());
 	txBuffer.store_char(data);
 	usart->CR1 |= USART_CR1_TXEIE;
+    return 1;
 }

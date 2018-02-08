@@ -33,7 +33,7 @@
 #endif
 
 
-uint32_t pulseIn( uint32_t pin, uint32_t state, uint32_t timeout )
+uint32_t pulseIn( PinName pin, uint32_t state, uint32_t timeout )
 {
   uint32_t startMicros = micros();
   uint32_t start_level = (uint32_t)digitalRead(pin);
@@ -74,7 +74,7 @@ uint32_t pulseIn( uint32_t pin, uint32_t state, uint32_t timeout )
  * ATTENTION:
  * this function relies on micros() so cannot be used in noInterrupt() context
  */
-uint32_t pulseInLong(uint8_t pin, uint8_t state, unsigned long timeout)
+uint32_t pulseInLong(PinName pin, uint8_t state, unsigned long timeout)
 {
   return pulseIn(pin, state, timeout);
 }

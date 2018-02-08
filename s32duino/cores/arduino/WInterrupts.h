@@ -21,8 +21,8 @@
 
 #include "Arduino.h"
 
-void attachInterrupt(uint32_t pin, void (*callback)(void), uint32_t mode);
+void attachInterrupt(PinName pin, void (*callback)(void), uint32_t mode);
 
-void detachInterrupt(uint32_t pin);
+void detachInterrupt(PinName pin);
 
 #endif /* _WIRING_INTERRUPTS_ */

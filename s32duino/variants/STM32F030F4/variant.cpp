@@ -58,7 +58,7 @@ extern "C" {
  */
 	void initVariant(void)
 	{
-		RCC->CFGR = RCC->CFGR & (~RCC_CFGR_PLLMUL) | (RCC_CFGR_PLLMUL12); /* (6) */
+		RCC->CFGR = (RCC->CFGR & (~RCC_CFGR_PLLMUL)) | (RCC_CFGR_PLLMUL12);
 
 		/* Enable PLL */
 		RCC->CR |= RCC_CR_PLLON;
@@ -69,7 +69,7 @@ extern "C" {
 		}
 
 		/* Select PLL as system clock source */
-		RCC->CFGR |= (uint32_t)RCC_CFGR_SW_PLL;    
+		RCC->CFGR |= (uint32_t)RCC_CFGR_SW_PLL;
 
 		/* Wait till PLL is used as system clock source */
 		while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS) != (uint32_t)RCC_CFGR_SWS_PLL)

@@ -21,7 +21,7 @@
 
 //This is the list of the IOs configured
 
-void pinMode(uint32_t p, uint32_t ulMode )
+void pinMode(PinName p, uint32_t ulMode )
 {
 	switch (ulMode)
 	{
@@ -46,7 +46,7 @@ void pinMode(uint32_t p, uint32_t ulMode )
 	}
 }
 
-void digitalWrite( uint32_t p, uint32_t ulVal )
+void digitalWrite( PinName p, uint32_t ulVal )
 {
 	// If the pin is an input, manipulate pullup
 	if (getGPIOMODER(p) == 0b00) {
@@ -60,7 +60,7 @@ void digitalWrite( uint32_t p, uint32_t ulVal )
 }
 
 
-int digitalRead(uint32_t p)
+int digitalRead(PinName p)
 {
 	uint32_t level = STM_PORT(p)->IDR & STM_GPIO_PIN(p);
 	return (level)? HIGH : LOW;

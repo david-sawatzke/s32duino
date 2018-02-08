@@ -20,14 +20,15 @@
 #define _WIRING_TONE_
 
 #include <stdint.h>
+#include "PinNames.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-	extern void tone(uint32_t _pin, uint32_t _frequency, uint32_t _duration = 0);
+	extern void tone(PinName _pin, uint32_t _frequency, uint32_t _duration = 0);
 
-	extern void noTone(uint32_t _pin);
+	extern void noTone(PinName _pin);
 
 	extern void toneCallback(void);
 

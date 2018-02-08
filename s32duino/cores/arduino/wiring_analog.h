@@ -45,7 +45,7 @@ extern void analogReference( eAnalogReference ulMode ) ;
  * \param ulPin
  * \param ulValue
  */
-extern void analogWrite( uint32_t ulPin, uint32_t ulValue ) ;
+extern void analogWrite( PinName ulPin, uint32_t ulValue ) ;
 
 /*
  * \brief Reads the value from the specified analog pin.
@@ -54,7 +54,7 @@ extern void analogWrite( uint32_t ulPin, uint32_t ulValue ) ;
  *
  * \return Read value from selected pin, if no error.
  */
-extern uint16_t analogRead( uint32_t ulPin ) ;
+extern uint16_t analogRead( PinName ulPin ) ;
 
 /*
  * \brief Set the resolution of analogRead return values. Default is 10 bits (range from 0 to 1023).

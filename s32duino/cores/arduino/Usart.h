@@ -12,7 +12,7 @@
 class Usart : public HardwareSerial
 {
 public:
-	Usart(USART_TypeDef *_s, uint32_t _pinRX, uint32_t _pinTX);
+	Usart(USART_TypeDef *_s, PinName _pinRX, PinName _pinTX);
 	void begin(uint32_t baudRate);
 	void begin(uint32_t baudrate, uint16_t config);
 	void end();
@@ -29,8 +29,8 @@ public:
 	operator bool() { return true; }
 
 private:
-	uint32_t rxPin;
-	uint32_t txPin;
+	PinName rxPin;
+	PinName txPin;
 	USART_TypeDef *usart;
 	RingBuffer rxBuffer;
 	RingBuffer txBuffer;

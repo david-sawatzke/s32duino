@@ -18,7 +18,9 @@ Chips available:
 ## Differences
 
 - There are no pin numbers, each Pin is named according to the datasheet, e.g. PA4, PA5
-- Pins are 32 bit big
+- Pins have the PinNumber type
+  (If using a library, you can see if it uses an int for pins and just cast it
+  to int. You will get a few warnings, but it'll probably work)
 - A double has 64 bits and an int has 32 bits
 - Programming can only be done via [blackmagic debugging probe](https://github.com/blacksphere/blackmagic)
 
@@ -40,4 +42,5 @@ If you have any issue to download/use a package, you could [file an issue on Git
 - Implement more libraries
 
 ## LICENSE
-Most of the files have copyright notices, which apply. The rest is licensed under GPLv2
+Most of the files have copyright notices, which apply. The rest is licensed
+under GPLv2 or later

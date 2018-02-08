@@ -44,7 +44,7 @@ static inline uint32_t mapResolution(uint32_t value, uint32_t from, uint32_t to)
 
 //perform the read operation on the selected analog pin.
 //the initialization of the analog PIN is done through this function
-uint16_t analogRead(uint32_t ulPin)
+uint16_t analogRead(PinName ulPin)
 {
 	// See if the Pin is an analog pin
 	uint32_t pinData = pinmap_find_data(ulPin, PinMap_ADC);
@@ -87,7 +87,7 @@ uint16_t analogRead(uint32_t ulPin)
 // hardware support.  These are defined in the appropriate
 // variant.cpp file.  For the rest of the pins, we default
 // to digital output.
-void analogWrite(uint32_t ulPin, uint32_t ulValue) {
+void analogWrite(PinName ulPin, uint32_t ulValue) {
 	// See if the Pin is an analog pin
 	uint32_t pinData = pinmap_find_data(ulPin, PinMap_PWM);
 	if (pinData != NP) {

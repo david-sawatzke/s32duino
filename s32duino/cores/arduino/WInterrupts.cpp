@@ -21,11 +21,9 @@
 void (*callbacks[16])(void);
 void detachInterruptNum(uint8_t pin);
 
-void attachInterrupt(uint32_t p, void (*callback)(void), uint32_t mode)
+void attachInterrupt(PinName p, void (*callback)(void), uint32_t mode)
 {
-	uint32_t it_mode;
 	uint8_t pin = STM_PIN(p);
-	volatile GPIO_TypeDef* port = STM_PORT(p);
 	// Just so there aren't any unforseen surprises
 	detachInterrupt(p);
 	callbacks[pin] = callback;
@@ -51,7 +49,7 @@ void attachInterrupt(uint32_t p, void (*callback)(void), uint32_t mode)
 	EXTI->IMR |= (1 << pin);
 }
 
-void detachInterrupt(uint32_t p)
+void detachInterrupt(PinName p)
 {
 	detachInterruptNum(STM_PIN(p));
 }

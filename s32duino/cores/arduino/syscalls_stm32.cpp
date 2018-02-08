@@ -114,14 +114,12 @@ extern "C" {
 		return 0 ;
 	}
 
-	extern int _write( UNUSED(int file), char *ptr, int len )
+	extern int _write( UNUSED(int file), UNUSED(char *ptr), int len )
 	{
-		//uart_debug_write((uint8_t *)ptr, len);
-
 		return len ;
 	}
 
-	extern void _exit( int status )
+	extern void _exit( UNUSED(int status) )
 	{
 		for ( ; ; ) ;
 	}

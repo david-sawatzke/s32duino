@@ -30,8 +30,8 @@ unsigned long countPulseASM(const volatile uint32_t *port, uint32_t bit, uint32_
  * to 3 minutes in length, but must be called at least a few dozen microseconds
  * before the start of the pulse.
  */
-extern uint32_t pulseIn( uint32_t ulPin, uint32_t ulState, uint32_t ulTimeout = 1000000L ) ;
-extern uint32_t pulseInLong( uint8_t pin, uint8_t state, unsigned long timeout = 1000000L ) ;
+extern uint32_t pulseIn( PinName ulPin, uint32_t ulState, uint32_t ulTimeout = 1000000L ) ;
+extern uint32_t pulseInLong( PinName pin, uint8_t state, unsigned long timeout = 1000000L ) ;
 
 #ifdef __cplusplus
 }

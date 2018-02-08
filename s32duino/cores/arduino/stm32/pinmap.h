@@ -31,13 +31,13 @@ extern "C" {
 #define NP       0U
 
 typedef struct {
-    uint32_t pin;
+    PinName pin;
     int data;
 } PinMap;
 
-bool pin_in_pinmap(uint32_t pin, const PinMap* map);
+bool pin_in_pinmap(PinName pin, const PinMap* map);
 
-uint32_t pinmap_find_data(uint32_t pin, const PinMap* map);
+uint32_t pinmap_find_data(PinName pin, const PinMap* map);
 
 #ifdef __cplusplus
 }

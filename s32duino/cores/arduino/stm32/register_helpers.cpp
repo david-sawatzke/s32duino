@@ -2,7 +2,7 @@
 
 void setGPIOMODER(uint32_t p, uint8_t mode)
 {
-	STM_PORT(p)->MODER = (STM_PORT(p)->MODER & ~(0b11 << (STM_PIN(p) * 2)) | (mode << (STM_PIN(p) * 2)));
+	STM_PORT(p)->MODER = (STM_PORT(p)->MODER & ~(0b11 << (STM_PIN(p) * 2))) | (mode << (STM_PIN(p) * 2));
 }
 
 void setGPIOAFR(uint32_t p, uint8_t af)
@@ -18,5 +18,5 @@ uint8_t getGPIOMODER(uint32_t p)
 
 void setGPIOPUPDR(uint32_t p, uint8_t mode)
 {
-	STM_PORT(p)->PUPDR = (STM_PORT(p)->PUPDR & (0b11 << (STM_PIN(p) * 2)) | (mode << (STM_PIN(p) * 2)));
+	STM_PORT(p)->PUPDR = (STM_PORT(p)->PUPDR & (0b11 << (STM_PIN(p) * 2))) | (mode << (STM_PIN(p) * 2));
 }

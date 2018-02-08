@@ -24,35 +24,35 @@
 // can't assume that its in that state when a sketch starts (and the
 // LiquidCrystal constructor is called).
 
-LiquidCrystal::LiquidCrystal(uint8_t rs, uint8_t rw, uint8_t enable,
-			     uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3,
-			     uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7)
+LiquidCrystal::LiquidCrystal(PinName rs, PinName rw, PinName enable,
+			     PinName d0, PinName d1, PinName d2, PinName d3,
+			     PinName d4, PinName d5, PinName d6, PinName d7)
 {
   init(0, rs, rw, enable, d0, d1, d2, d3, d4, d5, d6, d7);
 }
 
-LiquidCrystal::LiquidCrystal(uint8_t rs, uint8_t enable,
-			     uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3,
-			     uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7)
+LiquidCrystal::LiquidCrystal(PinName rs, PinName enable,
+			     PinName d0, PinName d1, PinName d2, PinName d3,
+			     PinName d4, PinName d5, PinName d6, PinName d7)
 {
-  init(0, rs, 255, enable, d0, d1, d2, d3, d4, d5, d6, d7);
+  init(0, rs, NC, enable, d0, d1, d2, d3, d4, d5, d6, d7);
 }
 
-LiquidCrystal::LiquidCrystal(uint8_t rs, uint8_t rw, uint8_t enable,
-			     uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3)
+LiquidCrystal::LiquidCrystal(PinName rs, PinName rw, PinName enable,
+			     PinName d0, PinName d1, PinName d2, PinName d3)
 {
-  init(1, rs, rw, enable, d0, d1, d2, d3, 0, 0, 0, 0);
+  init(1, rs, rw, enable, d0, d1, d2, d3, NC, NC, NC, NC);
 }
 
-LiquidCrystal::LiquidCrystal(uint8_t rs,  uint8_t enable,
-			     uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3)
+LiquidCrystal::LiquidCrystal(PinName rs,  PinName enable,
+			     PinName d0, PinName d1, PinName d2, PinName d3)
 {
-  init(1, rs, 255, enable, d0, d1, d2, d3, 0, 0, 0, 0);
+  init(1, rs, NC, enable, d0, d1, d2, d3, NC, NC, NC, NC);
 }
 
-void LiquidCrystal::init(uint8_t fourbitmode, uint8_t rs, uint8_t rw, uint8_t enable,
-			 uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3,
-			 uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7)
+void LiquidCrystal::init(uint8_t fourbitmode, PinName rs, PinName rw, PinName enable,
+			 PinName d0, PinName d1, PinName d2, PinName d3,
+			 PinName d4, PinName d5, PinName d6, PinName d7)
 {
   _rs_pin = rs;
   _rw_pin = rw;
@@ -87,8 +87,8 @@ void LiquidCrystal::begin(uint8_t cols, uint8_t lines, uint8_t dotsize) {
   }
 
   pinMode(_rs_pin, OUTPUT);
-  // we can save 1 pin by not using RW. Indicate by passing 255 instead of pin#
-  if (_rw_pin != 255) { 
+  // we can save 1 pin by not using RW. Indicate by passing NC instead of pin#
+  if (_rw_pin != NC) { 
     pinMode(_rw_pin, OUTPUT);
   }
   pinMode(_enable_pin, OUTPUT);
@@ -106,7 +106,7 @@ void LiquidCrystal::begin(uint8_t cols, uint8_t lines, uint8_t dotsize) {
   // Now we pull both RS and R/W low to begin commands
   digitalWrite(_rs_pin, LOW);
   digitalWrite(_enable_pin, LOW);
-  if (_rw_pin != 255) { 
+  if (_rw_pin != NC) { 
     digitalWrite(_rw_pin, LOW);
   }
   
@@ -286,7 +286,7 @@ void LiquidCrystal::send(uint8_t value, uint8_t mode) {
   digitalWrite(_rs_pin, mode);
 
   // if there is a RW pin indicated, set it low to Write
-  if (_rw_pin != 255) { 
+  if (_rw_pin != NC) { 
     digitalWrite(_rw_pin, LOW);
   }
   

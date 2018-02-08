@@ -22,14 +22,14 @@
 #include "Arduino.h"
 
 volatile GPIO_TypeDef * port;
-uint32_t pin;
+uint16_t pin;
 uint32_t start;
 uint32_t duration;
 
 
 // frequency (in hertz) and duration (in milliseconds).
 
-void tone(uint32_t _pin, uint32_t _frequency, uint32_t _duration)
+void tone(PinName _pin, uint32_t _frequency, uint32_t _duration)
 {
 	uint8_t end = 0;
 	uint32_t prescaler = 1;
@@ -58,7 +58,7 @@ void tone(uint32_t _pin, uint32_t _frequency, uint32_t _duration)
 }
 
 
-void noTone(uint32_t _pin)
+void noTone(PinName _pin)
 {
 	TIMER_TONE->DIER &= TIM_DIER_UIE;
 	digitalWrite(_pin, LOW);

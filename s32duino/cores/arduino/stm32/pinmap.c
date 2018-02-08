@@ -17,7 +17,7 @@
 
 #include "pinmap.h"
 
-uint32_t pinmap_find_data(uint32_t pin, const PinMap* map) {
+uint32_t pinmap_find_data(PinName pin, const PinMap* map) {
   while (map->pin != NC) {
     if (map->pin == pin)
       return map->data;
@@ -26,7 +26,7 @@ uint32_t pinmap_find_data(uint32_t pin, const PinMap* map) {
   return NP;
 }
 
-bool pin_in_pinmap(uint32_t pin, const PinMap* map) {
+bool pin_in_pinmap(PinName pin, const PinMap* map) {
   if (pin != (PinName)NC) {
     while (map->pin != NC) {
       if (map->pin == pin)
