@@ -21,7 +21,7 @@
 void (*callbacks[16])(void);
 void detachInterruptNum(uint8_t pin);
 
-void attachInterrupt(PinName p, void (*callback)(void), uint32_t mode)
+void attachInterrupt(uint32_t p, void (*callback)(void), uint32_t mode)
 {
 	uint8_t pin = STM_PIN(p);
 	// Just so there aren't any unforseen surprises
@@ -49,9 +49,9 @@ void attachInterrupt(PinName p, void (*callback)(void), uint32_t mode)
 	EXTI->IMR |= (1 << pin);
 }
 
-void detachInterrupt(PinName p)
+void detachInterrupt(uint32_t interrupt)
 {
-	detachInterruptNum(STM_PIN(p));
+	detachInterruptNum(STM_PIN(interrupt));
 }
 
 void detachInterruptNum(uint8_t pin)

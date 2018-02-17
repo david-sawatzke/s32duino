@@ -30,8 +30,10 @@ If you have any issue to download/use a package, you could [file an issue on Git
 
 ## Working Libraries
 - Core
+- LiquidCrystal
+  - Not tested
 - SPI
-  - UsingInterrupt is a no-op
+  - UsingInterrupt isn't there
   - Not tested
 
 ## TODO
