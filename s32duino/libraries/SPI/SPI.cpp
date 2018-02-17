@@ -73,11 +73,6 @@ void SPIClass::transfer(void *buf, size_t count)
 	*p = *((uint8_t *)&(spi->DR));
 }
 
-void SPIClass::usingInterrupt(uint8_t interruptNumber)
-{
-	//Not implemented
-}
-
 void SPIClass::beginTransaction(SPISettings settings)
 {
 	spi->CR1 = settings.CR1;

@@ -102,9 +102,6 @@ public:
 
 	void transfer(void *buf, size_t count);
 
-	// Transaction Functions
-	void usingInterrupt(uint8_t interruptNumber);
-
 	void beginTransaction(SPISettings settings);
 
 	// After performing a group of transfers and releasing the chip select
