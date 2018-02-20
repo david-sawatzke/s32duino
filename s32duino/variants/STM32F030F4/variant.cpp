@@ -23,14 +23,15 @@
 #include "variant.h"
 #include "Usart.h"
 
-
 /*
  * UART objects
  */
-Usart  Serial(USART1, PA3, PA2); //Connected to ST-Link
+Usart Serial(USART1, PA3, PA2); //Connected to ST-Link
 
 void serialEvent() __attribute__((weak));
 void serialEvent() { }
+void servoCallback() __attribute((weak));
+void servoCallback() {  }
 
 void serialEventRun(void)
 {
@@ -80,7 +81,7 @@ extern "C" {
 #endif
 		RCC->AHBENR |= RCC_AHBENR_GPIOAEN | RCC_AHBENR_GPIOBEN | RCC_AHBENR_GPIOFEN;
 		RCC->APB1ENR |= RCC_APB1ENR_TIM3EN | RCC_APB1ENR_TIM14EN;
-		RCC->APB2ENR |= RCC_APB2ENR_ADCEN | RCC_APB2ENR_TIM1EN | RCC_APB2ENR_TIM16EN | RCC_APB2ENR_TIM17EN | RCC_APB2ENR_USART1EN | RCC_APB2ENR_SPI1EN;
+		RCC->APB2ENR |= RCC_APB2ENR_ADCEN | RCC_APB2ENR_TIM1EN | RCC_APB2ENR_TIM16EN | RCC_APB2ENR_TIM17EN | RCC_APB2ENR_USART1EN | RCC_APB2ENR_TIM17EN | RCC_APB2ENR_SPI1EN;
 
 		SysTick_Config(clockCyclesPerMicrosecond()* 1000);
 		/* SysTick_IRQn interrupt configuration */
@@ -90,6 +91,8 @@ extern "C" {
 		NVIC_EnableIRQ(USART1_IRQn);
 		NVIC_SetPriority(TIM16_IRQn, 0);
 		NVIC_EnableIRQ(TIM16_IRQn);
+		NVIC_SetPriority(TIM17_IRQn, 0);
+		NVIC_EnableIRQ(TIM17_IRQn);
 		NVIC_SetPriority(EXTI0_1_IRQn, 0);
 		NVIC_EnableIRQ(EXTI0_1_IRQn);
 		NVIC_SetPriority(EXTI2_3_IRQn, 0);
@@ -105,4 +108,7 @@ extern "C" {
 	void TIM16_IRQHandler(void) {
 		toneCallback();
 	}
+    void TIM17_IRQHandler(void) {
+        servoCallback();
+    }
 }

@@ -35,6 +35,8 @@ If you have any issue to download/use a package, you could [file an issue on Git
 - SPI
   - UsingInterrupt isn't there
   - Not tested
+- Servo
+  - Not tested
 
 ## TODO
 

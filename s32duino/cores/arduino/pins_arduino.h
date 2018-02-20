@@ -42,7 +42,7 @@ extern "C" {
 // Used by analogRead api to have A0 == 0
 #define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p+A0) : p)
 // All pins could manage EXTI
-#define digitalPinToInterrupt(p)    (p)
+#define digitalPinToInterrupt(p)    ((uint32_t) p)
 
 #define digitalPinHasI2C(p)         (pin_in_pinmap(p, PinMap_I2C_SDA) ||\
                                      pin_in_pinmap(p, PinMap_I2C_SCL))
