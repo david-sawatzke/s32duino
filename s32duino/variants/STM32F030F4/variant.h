@@ -31,8 +31,6 @@
  *----------------------------------------------------------------------------*/
 #include "PeripheralPins.h"
 
-extern const PinName digitalPin[];
-
 //ADC resolution is 12bits
 #define ADC_RESOLUTION          12
 
@@ -42,7 +40,7 @@ extern const PinName digitalPin[];
 #define PWM_MAX_DUTY_CYCLE      255
 
 //On-board LED pin number
-#define LED_BUILTIN             PA5
+#define LED_BUILTIN             PA4
 #define LED_GREEN               LED_BUILTIN
 
 //On-board user button
@@ -54,18 +52,15 @@ extern const PinName digitalPin[];
 #define SPI_CHANNELS_NUM        16
 
 //default chip salect pin
-#define BOARD_SPI_DEFAULT_SS    10
+#define BOARD_SPI_DEFAULT_SS   PB1
 
 //In case SPI CS channel is not used we define a default one
 #define BOARD_SPI_OWN_SS        SPI_CHANNELS_NUM
 
 #define SS                      BOARD_SPI_DEFAULT_SS
-#define SS1                     4
-#define SS2                     7
-#define SS3                     8
-#define MOSI                    11
-#define MISO                    12
-#define SCLK                    13
+#define MOSI                    PA7
+#define MISO                    PA6
+#define SCLK                    PA5
 #define SCK                     SCLK
 
 //I2C Definitions
