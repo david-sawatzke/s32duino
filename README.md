@@ -1,8 +1,9 @@
 # s32duino Core
 
-This is a library for STM32F0 chips. It's based on the [official stm32 library](https://github.com/stm32duino/Arduino_Core_STM32)
+This is a library for STM32F0 chips.
 
 *WARNING*: This is still a WIP Project. It probably contains quite a few bugs and I'm not sure if going to continue developement
+
 Chips available:
 
 ## Supported chips
@@ -23,6 +24,17 @@ Chips available:
   to int. You will get a few warnings, but it'll probably work)
 - A double has 64 bits and an int has 32 bits
 - Programming can only be done via [blackmagic debugging probe](https://github.com/blacksphere/blackmagic)
+
+## Code Size
+
+As this library doesn't use a HAL, the compiled binaries are comparable to the
+AVR core:
+
+- Blink: 1956 Bytes
+- DigitalReadSerial: 2072 Bytes
+- ToneMultiple: 2188 Bytes
+- Autoscroll: 3044 Bytes
+- ArduinoISP: 4120 Bytes
 
 ## Troubleshooting
 
