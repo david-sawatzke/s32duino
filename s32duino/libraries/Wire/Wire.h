@@ -1,3 +1,4 @@
+#error "Library not yet supported"
 /*
   TwoWire.h - TWI/I2C library for Arduino & Wiring
   Copyright (c) 2006 Nicholas Zambetti.  All right reserved.

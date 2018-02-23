@@ -1,3 +1,4 @@
+#error "Library not yet supported"
 /*
   EEPROM.h - EEPROM library
   Original Copyright (c) 2006 David A. Mellis.  All right reserved.

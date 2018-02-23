@@ -1,3 +1,4 @@
+#error "Library not yet supported"
 /*
 
  SD - a slightly more friendly wrapper for sdfatlib

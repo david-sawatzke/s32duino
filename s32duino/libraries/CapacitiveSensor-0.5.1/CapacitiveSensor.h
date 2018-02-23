@@ -1,3 +1,4 @@
+#error "Library not yet supported"
 /*
   CapacitiveSense.h v.04 - Capacitive Sensing Library for 'duino / Wiring
   https://github.com/PaulStoffregen/CapacitiveSensor
