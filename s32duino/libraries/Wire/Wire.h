@@ -50,8 +50,10 @@ class TwoWire : public Stream
 
     uint8_t ownAddress;
     bool master;
-    i2c_t _i2c;
-
+    I2C_TypeDef *i2c;
+    PinName sda;
+    PinName scl;
+    
     static void (*user_onRequest)(void);
     static void (*user_onReceive)(int);
     static void onRequestService(void);
@@ -59,7 +61,7 @@ class TwoWire : public Stream
 
   public:
     TwoWire();
-    TwoWire(uint8_t sda, uint8_t scl);
+    TwoWire(I2C_TypeDef *i2c, PinName sda, PinName scl);
     void begin();
     void begin(uint8_t);
     void begin(int);

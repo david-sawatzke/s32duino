@@ -32,7 +32,7 @@
 
 // =====
 // Note: Commented lines are alternative possibilities which are not used per default.
-//       If you change them, you will have to know what you do
+//       If you change them, you should have a concrete reason
 // =====
 
 //*** ADC ***
@@ -53,12 +53,12 @@ const PinMap PinMap_ADC[] = {
 //*** I2C ***
 
 const PinMap PinMap_I2C_SDA[] = {
-	//{PB7,   I2C1, STM_PIN_DATA(STM_MODE_AF_OD, GPIO_NOPULL, GPIO_AF1)},
+    {PA10, STM_PIN_DEFINE(I2C1, GPIO_AF4)},
 	{NC,    0}
 };
 
 const PinMap PinMap_I2C_SCL[] = {
-	//{PB6,   I2C1, STM_PIN_DATA(STM_MODE_AF_OD, GPIO_NOPULL, GPIO_AF1)},
+    {PA9, STM_PIN_DEFINE(I2C1, GPIO_AF4)},
 	{NC,    0}
 };
 
